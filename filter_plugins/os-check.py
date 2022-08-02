@@ -32,8 +32,7 @@ def get_check_data(data):
     }
 
     for host, value in iteritems(data):
-        result = value.get('check_result')
-        if result:
+        if result := value.get('check_result'):
             if 'msg' in result:
                 item['error_item'][host] = {'msg': result['msg']}
                 continue
